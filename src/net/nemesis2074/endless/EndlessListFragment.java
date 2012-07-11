@@ -31,6 +31,50 @@ public abstract class EndlessListFragment<T> extends ListFragment implements OnS
     private boolean isLoading = true;
     private boolean thereIsMoreItems = true;
     
+    /*++++++++++++++++++++ INIT ++++++++++++++++++++*/
+    
+    /**
+     * Inicializa el ListView con el Adapter por default.
+     */
+    public void initListView(){
+    	getListView().addFooterView(footer, null, false);
+    	setAdapter(adapter);
+    	getListView().setOnScrollListener(this);
+    	if(items.size() == 0){
+    		refreshItems();
+    	}
+    }
+    
+    /**
+     * Inicializa el ListView con un Adapter.
+     */
+    public void initListView(ArrayAdapter<T> adapter){
+    	getListView().addFooterView(footer, null, false);
+    	setAdapter(adapter);
+    	getListView().setOnScrollListener(this);
+    	if(items.size() == 0){
+    		refreshItems();
+    	}
+    }
+    
+    /**
+     * Inicializa el ListView con un View como cabecera de la lista.
+     */
+    public void initListView(View header){
+    	setListAdapter(null);
+    	getListView().addHeaderView(header, null, false);
+    	initListView(adapter);
+    }
+    
+    /**
+     * Inicializa el ListView con un Adapter y un View de cabecera.
+     */
+    public void initListView(ArrayAdapter<T> adapter, View header){
+    	setListAdapter(null);
+    	getListView().addHeaderView(header, null, false);
+    	initListView(adapter);
+    }
+    
     /*++++++++++++++++++++ METODOS ++++++++++++++++++++*/
     
     protected ArrayList<T> getListItems(){
@@ -49,6 +93,18 @@ public abstract class EndlessListFragment<T> extends ListFragment implements OnS
     	if(getListAdapter() == null){
     		this.adapter = adapter;
     		setListAdapter(this.adapter);
+    	}
+    }
+    
+    public void setIndicatorText(CharSequence text){
+    	if(this.text != null){
+    		this.text.setText(text);
+    	}
+    }
+    
+    public void setIndicatorText(int resid){
+    	if(this.text != null){
+    		this.text.setText(resid);
     	}
     }
     
@@ -102,48 +158,6 @@ public abstract class EndlessListFragment<T> extends ListFragment implements OnS
     }
     
     /**
-     * Inicializa el ListView con el Adapter por default.
-     */
-    public void initListView(){
-    	getListView().addFooterView(footer, null, false);
-    	setAdapter(adapter);
-    	getListView().setOnScrollListener(this);
-    	if(items.size() == 0){
-    		refreshItems();
-    	}
-    }
-    
-    /**
-     * Inicializa el ListView con un Adapter.
-     */
-    public void initListView(ArrayAdapter<T> adapter){
-    	getListView().addFooterView(footer, null, false);
-    	setAdapter(adapter);
-    	getListView().setOnScrollListener(this);
-    	if(items.size() == 0){
-    		refreshItems();
-    	}
-    }
-    
-    /**
-     * Inicializa el ListView con un View como cabecera de la lista.
-     */
-    public void initListView(View header){
-    	setListAdapter(null);
-    	getListView().addHeaderView(header, null, false);
-    	initListView(adapter);
-    }
-    
-    /**
-     * Inicializa el ListView con un Adapter y un View de cabecera.
-     */
-    public void initListView(ArrayAdapter<T> adapter, View header){
-    	setListAdapter(null);
-    	getListView().addHeaderView(header, null, false);
-    	initListView(adapter);
-    }
-    
-    /**
      * Elimina todos los elementos de la lista y solicita que se carguen nuevamente llamando al metodo refreshItems()
      */
     public void refresh(){
@@ -166,10 +180,9 @@ public abstract class EndlessListFragment<T> extends ListFragment implements OnS
     @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     	if(footer == null){
-    		footer = inflater.inflate(R.layout.list_footer, null, false);
-    		progress = (ProgressBar)footer.findViewById(R.id.list_footer_progress);
-    		text = (TextView)footer.findViewById(R.id.list_footer_text);
-    		text.setText("Loading...");
+    		footer = inflater.inflate(R.layout.loading_indicator, null, false);
+    		progress = (ProgressBar)footer.findViewById(R.id.loading_indicator_progressbar);
+    		text = (TextView)footer.findViewById(R.id.loading_indicator_text);
     	}
     	
     	return super.onCreateView(inflater, container, savedInstanceState);
