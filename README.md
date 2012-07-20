@@ -4,11 +4,11 @@ Android - EndlessListView
 ¿Qué es?
 --------
 
-Esta libreria surgió de la necesidad de implementar la técnica conocida como
+Esta librería surgió de la necesidad de implementar la técnica conocida como
 *endless scrolling* o *infinite scrolling* en la plataforma Android. El uso de esta
-tecnica es muy común en aplicaciones móviles (tambien en varios sitios web).
+técnica es muy común en aplicaciones móviles (también en varios sitios web).
 
-La tecnica *endless scrolling* consiste en llenar una lista de datos
+La técnica *endless scrolling* consiste en llenar una lista de datos
 (en este caso, un *ListView*) en bloques de *n* número de elementos;
 al iniciar la aplicación se muestran los primeros *n* elementos de la lista; posteriormente,
 cuando el usuario hace scroll y llega al final de la lista; entonces, se agrega
@@ -21,18 +21,18 @@ largas.
 ¿Cómo la agrego a mi proyecto?
 ------------------------------
 
-Desde *Eclipse* puede agregarse *EndlessListView* como proyecto de libreria:
+Desde *Eclipse* puede agregarse *EndlessListView* como proyecto de librería:
 
 1. Crea un nuevo proyecto de Android desde código existente (*Android project from existing source*),
-   utilizando la libreria como fuente.
+   utilizando la librería como fuente.
    
-2. Asegurate de que el proyecto este compilado utilizando Android 4.0 o superior.
+2. Asegúrate de que el proyecto este compilado utilizando Android 4.0 o superior.
 
 3. Ahora, desde las propiedades de tu proyecto, agrega el proyecto creado a la sección *Libraries*
    de la categoría *Android*.
 
 ¿Cómo se utiliza?
--------------
+-----------------
 
 *EndlessListView* puede implementarse ya sea como *Fragment* o como *Activity*, en ambos
 casos la implementación es la misma; la unica diferencia es la clase a utilizar: 
@@ -79,7 +79,7 @@ implementar un *Fragment*.
         
 3. Inicializar la lista.
 
-    Se debe inicializar el *ListView* indicandole el *Adapter* que debe utilizar. 
+    Se debe inicializar el *ListView* indicándole el *Adapter* que debe utilizar. 
     Ejemplo:
     	
         initListView(new ItemsArrayAdapter(context, R.layout.item, getListItems()));
@@ -89,8 +89,8 @@ implementar un *Fragment*.
     La clase *EndlessListFragment<T>* contiene dos métodos abstractos que deben
     ser implementados:
     
-    El metodo *refreshItems()* se ejecutará para solicitar el primer bloque de elementos
-    de la lista o cuando explicitamente se llame al método *refresh()*:
+    El método *refreshItems()* se ejecutará para solicitar el primer bloque de elementos
+    de la lista o cuando explícitamente se llame al método *refresh()*:
     
         @Override
         public void refreshItems() {
@@ -106,7 +106,7 @@ implementar un *Fragment*.
             // Cargar el siguiente bloque de datos aquí
         }
 
-    Dentro de estos metodos se deben cargar los datos desde la fuente deseada (XML, jSON, Base de datos, etc.) y parsearlos
+    Dentro de estos métodos se deben cargar los datos desde la fuente deseada (XML, JSON, Base de datos, etc.) y parsearlos
     en el modelo de datos.
 
 5. Agregar los elementos a la lista.
