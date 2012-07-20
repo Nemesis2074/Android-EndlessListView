@@ -13,7 +13,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 /**
- * @author Nemesis2074
+ * @author Adair Castillo (Nemesis2074)
  */
 public abstract class EndlessListFragment<T> extends ListFragment implements OnScrollListener {
 	
@@ -77,18 +77,30 @@ public abstract class EndlessListFragment<T> extends ListFragment implements OnS
     
     /*++++++++++++++++++++ METODOS ++++++++++++++++++++*/
     
+    /**
+     * Retorna los elementos mostrados en la lista.
+     */
     protected ArrayList<T> getListItems(){
     	return items;
     }
     
+    /**
+     * Asigna la lista de elementos a mostrar.
+     */
     protected void setListItems(ArrayList<T> items){
     	this.items = items;
     }
     
+    /**
+     * Retorna el adapter del ListView
+     */
     protected ArrayAdapter<T> getAdapter(){
     	return this.adapter;
     }
     
+    /**
+     * Asigna el adaptar a utilizar en el ListView
+     */
     protected void setAdapter(ArrayAdapter<T> adapter){
     	if(getListAdapter() == null){
     		this.adapter = adapter;
@@ -96,12 +108,18 @@ public abstract class EndlessListFragment<T> extends ListFragment implements OnS
     	}
     }
     
+    /**
+     * Asigna el texto a utilizar como indicador de "Cargando..."
+     */
     public void setIndicatorText(CharSequence text){
     	if(this.text != null){
     		this.text.setText(text);
     	}
     }
     
+    /**
+     * Asigna el texto a utilizar como indicador de "Cargando..."
+     */
     public void setIndicatorText(int resid){
     	if(this.text != null){
     		this.text.setText(resid);
