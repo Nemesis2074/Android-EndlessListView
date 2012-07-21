@@ -124,7 +124,7 @@ implementar un *Fragment*.
         }
 
 Demo
-____
+-----
 
 El repositorio [Android-EndlessListView-Demo][demo] contiene un demo completo de como se
 implementa la librería.
