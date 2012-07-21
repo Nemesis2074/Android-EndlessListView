@@ -106,14 +106,14 @@ implementar un *Fragment*.
             // Cargar el siguiente bloque de datos aquí
         }
 
-    Dentro de estos métodos se deben cargar los datos desde la fuente deseada (XML, JSON, Base de datos, etc.) y parsearlos
-    en el modelo de datos.
+    Dentro de estos métodos se deben cargar los datos desde la fuente deseada (XML, JSON,
+    Base de datos, etc.) y parsearlos en el modelo de datos.
 
 5. Agregar los elementos a la lista.
 
-    Finalmente, se deben agregar los elementos al *ListView* por medio de cualquiera de los siguientes métodos:
-    *addItems(ArrayList<T> items)*, *addItem(T item)*, *addItemAtLast(T item)*; donde *T* es el modelo de datos utilizado.
-    Ejemplo:
+    Finalmente, se deben agregar los elementos al *ListView* por medio de cualquiera de los
+    siguientes métodos: *addItems(ArrayList<T> items)*, *addItem(T item)*,
+    *addItemAtLast(T item)*; donde *T* es el modelo de datos utilizado. Ejemplo:
     
         @Override
         public void loadMoreItems(int totalItems) {
@@ -123,7 +123,21 @@ implementar un *Fragment*.
             addItems(items);
         }
 
+Demo
+____
+
+El repositorio [Android-EndlessListView-Demo][demo] contiene un demo completo de como se
+implementa la librería.
+
 Licencia
 --------
 
 Copyright (c) 2012 Adair Castillo (Nemesis2074)
+
+*Android - EndlessListView* está liberado bajo la licencia *Apache License, Version 2.0*,
+Los términos de la licencia se encuentran en el siguiente link:
+
+[Apache License, Version 2.0][license]
+
+    [demo] https://github.com/Nemesis2074/Android-EndlessListView-Demo "Android-EndlessListView-Demo"
+    [license] http://www.apache.org/licenses/LICENSE-2.0 "Apache License, Version 2.0"
