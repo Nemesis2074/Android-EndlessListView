@@ -139,5 +139,5 @@ Los términos de la licencia se encuentran en el siguiente link:
 
 [Apache License, Version 2.0][license]
 
-    [demo] https://github.com/Nemesis2074/Android-EndlessListView-Demo "Android-EndlessListView-Demo"
-    [license] http://www.apache.org/licenses/LICENSE-2.0 "Apache License, Version 2.0"
+[demo]: https://github.com/Nemesis2074/Android-EndlessListView-Demo "Android-EndlessListView-Demo"
+[license]: http://www.apache.org/licenses/LICENSE-2.0 "Apache License, Version 2.0"
